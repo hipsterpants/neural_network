@@ -1,0 +1,57 @@
+- Neural Network V1 is the most basic neural network, featuring only weight updates with no backpropagation 
+with only a single layer. It seems that any mildly complicated input/output matrices break the network completely.
+- Neural Network V2 is focused on using the backpropagation algorithm gradient descent.
+
+- The guide I'm using says to implement subtraction for the weights being added to synapses for the purpose of
+getting the slope as close to possible (to always apply the right weights! makes sense). Yet that seems to cause
+the output to go in the opposite direction, so it gets closer to 0 when it is supposed to head towards 1, and
+vice-versa. So the answers are "right" in a way. Also explains why the error values aren't that off, even when
+the output is headed in exactly the wrong direction.
+
+- This extremely basic setup causes issues when attempting to the bezdekIris.data file, which has 3 input nodes
+that are run 150 times. Even with an extremely large number of iterations.
+
+- Still need to make my own neural network that records error, don't just copy that one dude's entirely.
+
+- Interesting results when using the Iris data on the error-recording with alpha values and a goal of getting
+the slope to 0 (gradient descent). Values are way off the requested output, yet still "correct". Output values
+are absurdly small, but the values that are supposed to be "1" happen to be the largest of all. So it is technically
+working, but not in the way I would like.
+
+- Nextest goal: use mini-batches on the iris test
+
+- Next goal: try using a "bias unit"
+
+- Adding different hidden laters didn't seem to help too much for large numbers
+
+- Alpha value to manage slope increase/decrease in ESSENTIAL to getting slope to 0, in test with Iris values, not
+having alpha values makes result gobbledygook
+
+- Not really sure how to use bias units, simply adding parts filled with nothing but "ones" seems to do nothing
+notable, at least for small input/output matrices. Probably not using bias units properly!
+
+- look into how to do mini-batches, might help at least for the iris data
+
+- 3 layers seems to reduce the alpha value by a somewhat significant amount. For the generic matrices I inserted,
+it reduced the best accuracy from an alpha value of 1 to 0.1. It looks slightly more accurate as well. Possibly
+continue testing with more and more layers to see the effect on the alpha values!
+
+- Using the idea of "subtracting" to get the slope (synapses basically) closer and closer to zero seems to be 
+ineffective. I would not be surprised at all to see that it is a better method for acquiring accurate results
+when dealing with more complex systems and vastly larger amounts of data, but on a smaller scale it is ineffective.
+Part of the problem is that is appears that the alpha value must be extremely tightly tuned in order to give
+correct results. Based on what was given by the basic neural network guide online when outputting the error, it
+looks like the subtraction method has a positive effect on the amount of error, yet strangely has very little effect
+on the output of the output layer. Do more research into this.
+
+- Modifying the hidden layer also has a major effect on what alpha value is necessary. NeuralNetworkV3.5 with a size
+8 hidden layer (rather than the minimum 4) reduces the highest viable to .001 (!) yet still is not very accurate.
+Like other elements of neural networks, it appears this requires much fine tuning.
+
+- Results so far seem to show that the best and most efficient neural networks, at least ones using only a very simple
+stochastic gradient descent algorithm for backpropagation, would need to find methods (or algorithms) to properly tune
+all these differect aspects to create the most efficient neural network. Of course, this testing is only being
+performed on absurdly simple input and output matrices. It is unknown what the effect would be on the large Iris
+data set. Test this tomorrow.
+
+- Test results without Alpha value for comparison!

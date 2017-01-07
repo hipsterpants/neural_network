@@ -1,0 +1,53 @@
+small: 3x3 to 3x1
+in
+
+[[1, 0, 0],
+[0, 1, 0],
+[0, 1, 1]]
+
+out
+
+[[1],
+[0],
+[0]]
+
+out lines up with farthest left values
+
+medium: 4x3 to 4x2
+
+in
+
+[[0,0,0],
+[1,0,1],
+[0,1,0],
+[1,1,0]]
+
+out
+
+[[1,0],
+[0,1],
+[1,0],
+[1,0]]
+
+out is [1,0] if the number in in is 1 or less, otherwise the opposite
+
+large: 5x5 to 5x5
+
+in
+
+[[0, 0, 1, 0, 1],
+[0, 1, 1, 1, 0],
+[1, 0, 1, 0, 0],
+[1, 1, 1, 1, 1],
+[1, 0, 0, 0, 0]]
+                      
+
+out
+
+[[0, 1, 0, 0, 0],
+[0, 0, 1, 0, 0],
+[0, 1, 0, 0, 0],
+[0, 0, 0, 0, 1],
+[1, 0, 0, 0, 0]]
+
+out values represent # of 1s in different rows of in
